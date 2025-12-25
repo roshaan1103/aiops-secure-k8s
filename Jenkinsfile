@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python ml/forecast_cpu.py
+                python ml/train_forecast.py
                 '''
             }
         }
