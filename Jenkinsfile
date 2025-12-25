@@ -57,7 +57,7 @@ pipeline {
                 sh '''
                 . venv/bin/activate
                 python ml/decision_engine.py
-                cat data/decision.txt
+                cat ml/data/decision.txt
                 '''
             }
         }

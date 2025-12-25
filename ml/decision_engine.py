@@ -31,6 +31,6 @@ else:
 print(f"[DECISION] {decision}")
 
 # Save decision
-with open("data/decision.txt", "w") as f:
+with open("ml/data/decision.txt", "w") as f:
     f.write(decision)
 
