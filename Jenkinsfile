@@ -74,7 +74,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'data/*.csv,data/*.png,data/decision.txt', fingerprint: true
+            archiveArtifacts artifacts: 'ml/data/*.csv,ml/data/*.png,ml/data/decision.txt', fingerprint: true
         }
     }
 }
