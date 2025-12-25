@@ -8,23 +8,43 @@ spec:
   selector:
     matchLabels:
       app: prometheus
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: prometheus
     spec:
       containers:
-        - name: prometheus
-          image: prom/prometheus:v2.51.0
-          args:
-            - "--config.file=/etc/prometheus/prometheus.yml"
-          ports:
-            - containerPort: 9090
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/prometheus/
+      - name: prometheus
+        image: prom/prometheus:v2.51.0
+        args:
+          - "--config.file=/etc/prometheus/prometheus.yml"
+          - "--storage.tsdb.path=/prometheus"
+          - "--storage.tsdb.retention.time=30m"
+          - "--storage.tsdb.wal-compression"
+        ports:
+          - containerPort: 9090
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+            ephemeral-storage: "200Mi"
+          limits:
+            cpu: "300m"
+            memory: "512Mi"
+            ephemeral-storage: "500Mi"
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/prometheus/
+          - name: data
+            mountPath: /prometheus
       volumes:
         - name: config-volume
           configMap:
             name: prometheus-config
+        - name: data
+          emptyDir:
+            sizeLimit: 600Mi
+      serviceAccountName: prometheus-sa
 

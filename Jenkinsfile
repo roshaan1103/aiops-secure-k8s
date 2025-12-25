@@ -70,6 +70,14 @@ pipeline {
                 '''
             }
         }
+	stage('Simulate CPU Stress') {
+ 	    steps {
+       	        sh '''
+       	        kubectl run cpu-stress --image=busybox --rm -it --restart=Never -- \
+        	sh -c "while true; do :; done"
+       		'''
+    	    }
+        }
     }
 
     post {
