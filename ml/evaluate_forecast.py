@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from pathlib import Path
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("ml/data")
 CSV_PATH = DATA_DIR / "cpu_forecast.csv"
 
 df = pd.read_csv(CSV_PATH)

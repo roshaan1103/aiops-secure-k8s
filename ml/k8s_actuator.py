@@ -1,6 +1,6 @@
 import subprocess
 
-DECISION_FILE = "data/decision.txt"
+DECISION_FILE = "ml/data/decision.txt"
 DRY_RUN = False   # IMPORTANT
 
 with open(DECISION_FILE) as f:

@@ -3,8 +3,8 @@ import pandas as pd
 ANOMALY_THRESHOLD = -1          # Isolation Forest output
 FORECAST_CPU_THRESHOLD = 75.0   # %
 
-anomaly_file = "data/cpu_with_anomalies.csv"
-forecast_file = "data/cpu_forecast.csv"
+anomaly_file = "ml/data/cpu_with_anomalies.csv"
+forecast_file = "ml/data/cpu_forecast.csv"
 
 decisions = []
 

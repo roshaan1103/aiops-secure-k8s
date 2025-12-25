@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("data/cpu_with_anomalies.csv") #This path has to be edited as per needed
+df = pd.read_csv("ml/data/cpu_with_anomalies.csv") #This path has to be edited as per needed
 df["timestamp"] = pd.to_datetime(df["timestamp"])
 
 plt.figure(figsize=(12, 6))
@@ -31,7 +31,7 @@ plt.legend()
 plt.grid(True)
 
 plt.tight_layout()
-plt.savefig("data/cpu_anomalies.png") #This path has to be edited as per needed
+plt.savefig("ml/data/cpu_anomalies.png") #This path has to be edited as per needed
 print("[OK] Plot saved to ml/data/cpu_anomalies.png")
 
 

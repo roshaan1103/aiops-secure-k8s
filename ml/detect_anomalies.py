@@ -3,7 +3,7 @@ from sklearn.ensemble import IsolationForest
 import matplotlib.pyplot as plt
 
 # Load data
-df = pd.read_csv("data/cpu_usage_percent.csv") #This path has to be edited later as per needed
+df = pd.read_csv("ml/data/cpu_usage_percent.csv") #This path has to be edited later as per needed
 
 # Convert timestamp
 df["timestamp"] = pd.to_datetime(df["timestamp"])
@@ -24,7 +24,7 @@ df["anomaly"] = model.fit_predict(X)
 df["anomaly"] = df["anomaly"].map({1: 0, -1: 1})
 
 # Save results
-df.to_csv("data/cpu_with_anomalies.csv", index=False) #This path has to be edited as per needed
+df.to_csv("ml/data/cpu_with_anomalies.csv", index=False) #This path has to be edited as per needed
 
 print(f"[OK] Detected {df['anomaly'].sum()} anomalies")
 

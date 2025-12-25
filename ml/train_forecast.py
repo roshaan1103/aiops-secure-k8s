@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 
 # Paths
-DATA_DIR = Path("data")
+DATA_DIR = Path("ml/data")
 CSV_PATH = DATA_DIR / "cpu_usage_percent.csv"
 OUT_CSV = DATA_DIR / "cpu_forecast.csv"
 OUT_PNG = DATA_DIR / "cpu_forecast.png"
