@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python ml/detect_anomalies.py
+                python ml/scripts/detect_anomalies.py
                 '''
             }
         }
@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python ml/train_forecast.py
+                python ml/scripts/train_forecast.py
                 '''
             }
         }
@@ -56,7 +56,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python ml/decision_engine.py
+                python ml/scripts/decision_engine.py
                 cat ml/data/decision.txt
                 '''
             }
@@ -66,7 +66,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python ml/k8s_actuator.py
+                python ml/scripts/k8s_actuator.py
                 '''
             }
         }
